@@ -89,6 +89,8 @@ If we are done with our proto file, we generated our java code and we made the i
 package org.example.demo;
 
 import java.io.IOException;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -107,7 +109,7 @@ public class DemoServer {
          server = ServerBuilder.forPort(8080)        // I decided to start the server on 8080, but it's your choice
                  .addService(new DemoServiceImpl())  // This it he service we created not long ago
                  .build()
-                 .start();                           // You don't have to start this immediatly, but in this case there is no reason to wait :-)
+                 .start();                           // You don't have to start this immediately, but in this case there is no reason to wait :-)
       } catch (IOException e) {
           // Your choice how to handle this exception
       }
@@ -117,7 +119,7 @@ public class DemoServer {
       if (Objects.nonNull(server)) {                                // We should only shutdown the server if it's exists
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-               server.awaitTermination(10, TimeUnit.SECONDS);       // Let's wait a little for the last requests to go through
+               server.awaitTermination(10, TimeUnit.SECONDS);       // Stops our server after 2 minutes
             } catch (InterruptedException e) {
                // Your choice how to handle this exception
             }

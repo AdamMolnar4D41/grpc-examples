@@ -1,0 +1,23 @@
+syntax = "proto3"; // syntax selection, it can be proto2 or proto3.
+
+package org.example.demo; // This to prevent name clashes between protocol message types.
+
+import "google/protobuf/empty.proto"; // import of an "Empty" message to be used in our messages. Needs the "com.google.protobuf:protobuf-java-util" dependency
+
+option java_package = "org.example.demo"; // java package for our generated code
+option java_multiple_files = true; // It'll generate multiple files and not one for all class
+
+service DemoService { // our first service
+    rpc call(google.protobuf.Empty) returns (DemoResponse); // for an empty call we should response with a DemoResponse message
+}
+
+message DemoResponse {
+    Status status = 1; // a custom object in the response, note: index must be a positive integer
+    string description = 2; // a string in the response
+}
+
+enum Status {
+    STATUS_OK = 0; // unlike a message, here we should start with zero index
+    STATUS_UNSPECIFIED = 1;
+    STATUS_ERROR = 2;
+}
