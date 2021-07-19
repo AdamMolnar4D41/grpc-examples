@@ -119,7 +119,7 @@ public class DemoServer {
       if (Objects.nonNull(server)) {                                // We should only shutdown the server if it's exists
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-               server.awaitTermination(10, TimeUnit.SECONDS);       // Stops our server after 2 minutes
+               server.awaitTermination(60, TimeUnit.SECONDS);       // Stops our server after a minute
             } catch (InterruptedException e) {
                // Your choice how to handle this exception
             }
