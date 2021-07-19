@@ -132,3 +132,5 @@ public class DemoServer {
 Congratulation you have your first gRPC server running! But how to test it? For REST we have Postman for example, but rpc is a little different than REST.
 For example the communication not happens in JSON, so not human-readable format. We need something that converts the rpc response into a json for example.
 A good tool to use is "BloomRPC" there are multiple tutorials and documentations on the internet, so I won't write it down.
+
+If you want to know how to create a spring gRPC service, then go back to master.
