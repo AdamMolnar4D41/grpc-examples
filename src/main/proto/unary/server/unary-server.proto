@@ -1,0 +1,25 @@
+syntax = "proto3"; // syntax selection, it can be proto2 or proto3.
+
+package org.example.unary.server; // This to prevent name clashes between protocol message types.
+
+option java_package = "org.example.unary.server"; // java package for our generated code
+option java_multiple_files = true; // It'll generate multiple files and not one for all class
+
+service UnaryProducerService { // our first service
+    rpc call(DemoRequest) returns (DemoResponse);
+}
+
+message DemoRequest {
+    string message = 1;
+}
+
+message DemoResponse {
+    Status status = 1; // a custom object in the response, note: index must be a positive integer
+    string message = 2; // a string in the response
+}
+
+enum Status {
+    STATUS_OK = 0; // unlike a message, here we should start with zero index
+    STATUS_UNSPECIFIED = 1;
+    STATUS_ERROR = 2;
+}
