@@ -9,7 +9,6 @@ import java.util.logging.Logger;
 
 @GrpcService
 public class RepeaterServiceImpl extends RepeaterServiceGrpc.RepeaterServiceImplBase {
-
     private static final Logger LOGGER = Logger.getLogger(RepeaterServiceImpl.class.getName());
 
     @Override

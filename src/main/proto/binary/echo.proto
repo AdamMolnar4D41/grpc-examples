@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package org.example.bidirectional;
+
+option java_package = "org.example.bidirectional";
+option java_multiple_files = true;
+
+service EchoService {
+    rpc echo(stream EchoMessage) returns (stream EchoMessage);
+}
+
+message EchoMessage {
+    string message = 1;
+}

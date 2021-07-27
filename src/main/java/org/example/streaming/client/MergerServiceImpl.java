@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 
 @GrpcService
 public class MergerServiceImpl extends MergerServiceGrpc.MergerServiceImplBase {
-
     private static final Logger LOGGER = Logger.getLogger(MergerServiceImpl.class.getName());
 
     @Override
