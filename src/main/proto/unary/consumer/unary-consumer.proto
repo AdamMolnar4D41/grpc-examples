@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package org.example.unary.consumer;
+
+import "google/protobuf/empty.proto";
+
+option java_package = "org.example.unary.consumer";
+option java_multiple_files = true;
+
+service UnaryConsumerService {
+    rpc call(google.protobuf.Empty) returns (FinalResponse);
+}
+
+message FinalResponse {
+    string message = 1;
+}
