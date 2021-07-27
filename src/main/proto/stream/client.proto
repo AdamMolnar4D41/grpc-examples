@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package org.example.streaming.client;
+
+option java_package = "org.example.streaming.client";
+option java_multiple_files = true;
+
+service MergerService {
+    rpc merge(stream MergeInput) returns (MergeOutput);
+}
+
+message MergeInput {
+    string message = 1;
+}
+
+message MergeOutput {
+    string message = 1;
+    int32 input_count = 2;
+}
