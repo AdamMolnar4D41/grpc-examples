@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package org.example.streaming.server;
+
+option java_package = "org.example.streaming.server";
+option java_multiple_files = true;
+
+service RepeaterService {
+    rpc repeat(RepeatMessage) returns (stream RepeatMessage);
+}
+
+message RepeatMessage {
+    string message = 1;
+}
