@@ -46,7 +46,7 @@ public class KitchenService extends KitchenServiceGrpc.KitchenServiceImplBase {
 
         private void sleep() {
             try {
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 LOGGER.log(Level.SEVERE, "Failed to sleep... don't drink this much coffee!");
             }
