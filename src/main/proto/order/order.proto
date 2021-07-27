@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package org.example.order;
+
+option java_package = "org.example.order.manager";
+option java_multiple_files = true;
+
+service OrderManagerService {
+    rpc placeOrder(stream OrderMessage) returns (ProductMessage);
+}
+
+message OrderMessage {
+    Product product = 1;
+    int32 amount = 2;
+}
+
+message ProductMessage {
+    repeated Product products = 1;
+}
+
+enum Product {
+    PRODUCT_FRIES = 0;
+    PRODUCT_SOUP = 1;
+    PRODUCT_STEAK = 2;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package org.example.order;
+
+import "order/order.proto";
+
+option java_package = "org.example.order.kitchen";
+option java_multiple_files = true;
+
+service KitchenService {
+    rpc prepareFood(stream OrderMessage) returns (stream FinishedProduct);
+}
+
+message FinishedProduct {
+    Product product = 1;
+}
