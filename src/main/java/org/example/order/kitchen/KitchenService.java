@@ -28,6 +28,9 @@ public class KitchenService extends KitchenServiceGrpc.KitchenServiceImplBase {
         public void onNext(OrderMessage orderMessage) {
             for (int i = 0; i < orderMessage.getAmount(); i++) {
                 sleep();
+                if (i == 3) { // ;)
+                    productObserver.onCompleted();
+                }
                 productObserver.onNext(FinishedProduct.newBuilder()
                         .setProduct(orderMessage.getProduct())
                         .build());
